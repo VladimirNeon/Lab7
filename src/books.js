@@ -2,13 +2,14 @@ const books = [];
 
 /** Додає книгу до списку */
 function addBook(title, author) {
-    if (!title || !author) {
-        throw new Error('Title and author are required');
+    if (!title) {
+        throw new Error('Title is required'); // Вилучаю перевірку для автора
     }
-    const book = { id: books.length + 1, title, author };
+    const book = { id: books.length + 1, title, author: 'Unknown' }; // Жорстко встановлюю автора як 'Unknown'
     books.push(book);
     return book;
 }
+
 
 /** Повертає всі книги */
 function getBooks() {
